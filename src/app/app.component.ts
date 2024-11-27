@@ -1,12 +1,28 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { OnInit } from '@angular/core';
+import { initFlowbite } from 'flowbite';
+import { CharacterListComponent } from './Components/character-list/character-list.component';
+import { SearchBarComponent } from './Components/search-bar/search-bar.component';
+import { CharacterCardComponent } from "./Components/character-card/character-card.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CharacterListComponent, SearchBarComponent, CharacterCardComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'PruebaCorta2_IDWM';
+export class AppComponent implements OnInit {
+  title = 'web-app';
+  searchQuery: string = '';
+
+  ngOnInit(): void {
+    initFlowbite();
+  }
+
+  // Método para manejar la búsqueda
+  onSearch(query: string): void {
+    this.searchQuery = query;
+    console.log('Search query received:', this.searchQuery);
+  }
 }

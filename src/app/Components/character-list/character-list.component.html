@@ -1,0 +1,21 @@
+<div class="container mx-auto p-4">
+  <app-search-bar (search)="onSearch($event)"></app-search-bar>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-4">
+    <app-character-card *ngFor="let character of characters" [character]="character"></app-character-card>
+  </div>
+  <div class="flex justify-between items-center mt-4">
+    <button
+      class="btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+      (click)="changePage(false)"
+      [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button
+      class="btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+      (click)="changePage(true)"
+      [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+</div>
