@@ -13,7 +13,7 @@ import { CharacterCardComponent } from "./Components/character-card/character-ca
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'web-app';
+  title = 'Rick and Morty';
   searchQuery: string = '';
 
   ngOnInit(): void {
